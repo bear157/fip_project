@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Processing</title>
+
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/marvinj-1.0.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="js/script.js"></script>
+
+    <style type="text/css">
+        li.list-group-item {
+            color: white; 
+        }
+
+        li.list-group-item.bg-info:hover {
+            color: white;
+            background-color: #138496 !important;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid my-2">
+    
+    <h3>Image Processing</h3>
+
+    <div class="d-inline-block">
+        <label for="imageInput">Select image: </label>
+        <input type="file" class="border" id="imageInput" onchange="readURL(this)" accept="image/*" /> 
+        <input class="d-none" type="file" id="imageInput2" multiple accept="image/*" onchange="readMultiple(this)">
+    </div>
+
+
+    <div class="row mt-3">
+        <div class="col-2">
+            <h5>Image Filter</h5>
+            <ul class="list-group">
+                <li class="list-group-item btn btn-sm bg-info p-2" onclick="grayScale()">Gray Scale</li>
+                <li class="list-group-item btn btn-sm bg-info p-2" onclick="blackAndWhite()">Black and White</li>
+                <li class="list-group-item btn btn-sm bg-info p-2" onclick="thresholding()">Thresholding</li>
+                <li class="list-group-item btn btn-sm bg-info p-2" onclick="sepia()">Sepia</li>
+                <li class="list-group-item btn btn-sm bg-info p-2" onclick="emboss()">Emboss</li>
+                <li class="list-group-item btn btn-sm bg-info p-2" onclick="halftone()">Halftone</li>
+                <li class="list-group-item btn btn-sm bg-info p-2" onclick="invert()">Invert</li>
+                <li class="list-group-item btn btn-sm bg-info p-2" onclick="gaussianBlur()">Blur</li>
+                <li class="list-group-item btn btn-sm bg-info p-2" onclick="edgeDetection1()">Edge Detection</li>
+            </ul>
+        </div>
+
+        <div class="col-8 text-center border bg-light">
+            <div class="d-none" id="btn-crop">
+                <button class="btn btn-sm btn-success" type="button" onclick="confirmCrop(true)">Crop</button>
+                <button class="btn btn-sm btn-danger" type="button" onclick="confirmCrop(false)">Cancel</button>
+            </div>
+            <canvas id="canvasA"></canvas>
+        </div>
+
+        <div class="col-2">
+            <h5>Other function</h5>
+            <table class="table table-borderless table-sm">
+                <tr><td>
+                    <button class="btn btn-info btn-sm w-100" type="button" onclick="crop()">Crop</button>
+                </td></tr>
+                <tr><td>
+                    <button class="btn btn-info btn-sm w-100" type="button" onclick="scale()">Scale</button>
+                </td></tr>
+                <tr><td>
+                    <button class="btn btn-primary btn-sm w-100" type="button" onclick="$('#imageInput2').trigger('click')">Merge multiple image</button>
+                </td></tr>
+                <tr><td>
+                    <button class="btn btn-danger btn-sm w-100" type="button" onclick="reset()">Reset</button>
+                </td></tr>
+                <tr><td>
+                    <a href="#" class="btn btn-sm btn-success w-100" id="btn-download" onclick="save();" download="download.png">Download Image</a>        
+                </td></tr>
+            </table>
+            
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+</div>
+</body>
+</html>
