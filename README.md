@@ -1,1 +1,1 @@
-To images for merging are located at 'image' folder.
+The images for merging are located at 'image' folder.
